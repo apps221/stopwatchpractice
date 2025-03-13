@@ -1,9 +1,18 @@
+let cancelId;
+let startTime;
+const timerMilliseconds = document.querySelector('.timer__milliseconds')
+const timerSeconds = document.querySelector('.timer__seconds')
 function startTimer() {
-console.log("first part")
+startTime = Date.now()
+cancelId = requestAnimationFrame(updateTimer)
 }
 function stopTimer() {
-console.log("second part")
+cancelAnimationFrame(cancelId)
 }
 function resetTimer() {
-console.log("third part")
+
+}
+function updateTimer() {
+    let milSecondsElapsed = (Date.now() - startTime)
+    cancelId = requestAnimationFrame(updateTimer)
 }
